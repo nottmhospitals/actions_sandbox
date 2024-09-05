@@ -17,7 +17,7 @@ jobs:
               - name: Cache NumPy
                 uses: actions/cache@v3
                 with:
-                     path: ~/.cache/pip
+                     path: C:/Users/zia.ahmed/AppData/Local/pip
                      key: ${{ runner.os }}-pip-numpy
 
               - name: Display Python Version 
