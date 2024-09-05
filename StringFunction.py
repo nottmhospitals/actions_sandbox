@@ -1,4 +1,4 @@
-
+import numpy
 def stringFunction(message: str):
     print(message)
 
