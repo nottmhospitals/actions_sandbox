@@ -7,7 +7,7 @@ on: [push]
 jobs:
   build: 
   # this will check that the user is running on the latest version of following OS  
-    runs-on: [ubuntu-latest,windows-latest,macos-latest]
+    runs-on: [windows-latest]
 # uses actions/checkout with '@v_' which will automatically assign the version based on the repository  
     steps:
       - uses: actions/checkout@v
