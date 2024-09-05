@@ -17,4 +17,4 @@ jobs:
               - name: Display Python Version 
                 run: python -c "import sys; print(sys.version)"
               - name: Verify NumPy is installed
-                run: python -c "import numpy; print(numpy is installed)"
+                run: python -c "import numpy; print(numpy is installed) || pip install numpy "print(numpy has now been installed)"
