@@ -14,10 +14,10 @@ jobs:
                       # checks that the user's version of python is '3.9'
                       python-version: '3.9'
                     # prints out the version that the user currently has
-              - name: Cache NumPy
+              - name: Cache NumPyv2
                 uses: actions/cache@v3
                 with:
-                     path: C:/Users/zia.ahmed/AppData/Local/pip
+                     path: C:/Users/${{ runner.username }}/AppData/Local/pip/Cache
                      key: ${{ runner.os }}-pip-numpy
 
               - name: Display Python Version 
