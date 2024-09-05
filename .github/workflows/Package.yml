@@ -16,5 +16,8 @@ jobs:
                     # prints out the version that the user currently has
               - name: Display Python Version 
                 run: python -c "import sys; print(sys.version)"
-              - name: Verify NumPy is installed
-                run: python -c "import numpy; print(numpy is installed)" || pip install numpy "print(numpy has now been installed)"
+              - name: Check and Install Numpy If Not Already Installed
+                run: |
+                    # this is checking that if it is not installed, install numpy
+                    python -c "import numpy" || pip install numpy
+                    python -c "import numpy; print(f'NumPy version: {numpy.__version}')"
