@@ -1,0 +1,20 @@
+name: checking for python dependencies
+
+on: [push]
+
+jobs:
+    build:
+          runs-on: windows-latest
+
+
+          steps:
+              - name: Check python is installed  
+                uses: actions/setup-python@v4
+                with:
+                      # checks that the user's version of python is '3.9'
+                      python-version: '3.9'
+                    # prints out the version that the user currently has
+              - name: Display Python Version 
+                run: python -c "import sys; print(sys.version)"
+              - name: Verify NumPy is installed
+                run: python -c "import numpy; print(numpy is installed)"
