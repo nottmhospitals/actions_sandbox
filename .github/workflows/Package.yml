@@ -20,4 +20,4 @@ jobs:
                 run: |
                     # this is checking that if it is not installed, install numpy
                     python -c "import numpy" || pip install numpy
-                    python -c "import numpy; print(f'NumPy version: {numpy.__version}')"
+                    python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
