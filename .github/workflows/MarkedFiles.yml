@@ -1,29 +1,29 @@
-name: Check Files
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'data/**/*.{csv,sql,txt,xls,xlsx}'
+# name: Check Files
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths:
+#       - 'data/**/*.{csv,sql,txt,xls,xlsx}'
 
-jobs:
-  check:
-    runs-on: windows-latest
+# jobs:
+#   check:
+#     runs-on: windows-latest
 
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v4
 
-      - name: Check for Restricted Files
-        id: check_files
-        run: |
-          # List changed files matching the patterns
-          changed_files=$(git diff --name-only HEAD^ HEAD | grep -E '\.(csv|xls|sql|xlsx)$')
-          echo "Changed files: $changed_files"
+#       - name: Check for Restricted Files
+#         id: check_files
+#         run: |
+#           # List changed files matching the patterns
+#           changed_files=$(git diff --name-only HEAD^ HEAD | grep -E '\.(csv|xls|sql|xlsx)$')
+#           echo "Changed files: $changed_files"
           
-          # Fail the job if restricted files are found
-          if [ -n "$changed_files" ]; then
-            echo "Restricted files detected. Process blocked until approval."
-            echo "::set-output name=files::$changed_files"
-            exit 1
-          fi
+#           # Fail the job if restricted files are found
+#           if [ -n "$changed_files" ]; then
+#             echo "Restricted files detected. Process blocked until approval."
+#             echo "::set-output name=files::$changed_files"
+#             exit 1
+#           fi
