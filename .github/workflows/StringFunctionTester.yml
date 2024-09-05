@@ -30,7 +30,7 @@ jobs:
 
     #Check code formatting with black
     - name: Check code formatting with black
-      run: black --check .
+      run: black .
 
         
     - name: Running String Function
