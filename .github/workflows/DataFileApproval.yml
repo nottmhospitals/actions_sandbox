@@ -3,28 +3,28 @@ name: Check Files
 on:
   push:
     branches:
-    - main
-    paths: 
+      - main
+    paths:
       - 'data/**/*.{csv,sql,txt,xls,xlsx}'
-
 
 jobs:
   check:
-      runs-on: windows-latest
+    runs-on: windows-latest
 
-      steps:
+    steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Check for restricted files
+
+      - name: Check for Restricted Files
         id: check_files
         run: |
-          #will now check for each pushed files using specific data files
-          changed_files = $(git diff --name-only HEAD^ HEAD | grep -E'\. (csv|xls|sql|xlsx)$')
+          # List changed files matching the patterns
+          changed_files=$(git diff --name-only HEAD^ HEAD | grep -E '\.(csv|xls|sql|xlsx)$')
           echo "Changed files: $changed_files"
-          #now checks that the variable is not empty
-          if[-n $changed_files];then
-            echo "Restricted files detected. Process blocked until approval"
-            echo "::set-output name=files:$changed_files"
+          
+          # Fail the job if restricted files are found
+          if [ -n "$changed_files" ]; then
+            echo "Restricted files detected. Process blocked until approval."
+            echo "::set-output name=files::$changed_files"
             exit 1
-          fi      
-      
+          fi
