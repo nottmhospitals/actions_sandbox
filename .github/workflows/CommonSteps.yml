@@ -1,0 +1,22 @@
+name: Common Steps
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: true
+        type: string
+
+jobs:
+  setup:
+    runs-on: windows-latest
+
+    steps:
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+          python-version: ${{input.python-version}}
+    - name: Check and Install Numpy If Not Already Installed
+      run: |
+        # this is checking that if it is not installed, install numpy
+        python -c "import numpy" || pip install numpy
+        python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
