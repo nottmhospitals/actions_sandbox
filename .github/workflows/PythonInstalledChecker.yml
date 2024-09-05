@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Checking if Python is installed 
-        uses: ./.github/workflows/CommonSteps.yml
+        uses: actions/setup-python@v4
         with:
         # checks that the user's version of python is '3.9'
           python-version: '3.9'
