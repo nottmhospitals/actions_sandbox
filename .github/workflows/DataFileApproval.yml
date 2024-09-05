@@ -1,5 +1,4 @@
 name: Check Files
-
 on:
   push:
     branches:
