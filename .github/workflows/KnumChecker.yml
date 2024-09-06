@@ -1,0 +1,33 @@
+name: Check for Hardcoded K Numbers
+
+on:
+  push:
+    paths:
+      - '**.py'  # Trigger only when Python files are pushed
+  pull_request:
+    paths:
+      - '**.py'  # Trigger on pull requests with Python file changes
+
+jobs:
+  check-hardcoded-k:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Scan files for hardcoded K numbers
+      - name: Check for hardcoded K numbers
+        run: |
+          # Scan all Python files for a "K" number (e.g., K1234567)
+          forbidden_k=$(grep -Enr 'K[0-9]{7}' . --include="*.py" || true)
+
+          # If a K number is found, print an error and fail the workflow
+          if [ -n "$forbidden_k" ]; then
+            echo "The following hardcoded K numbers were found (Failed to commit):"
+            echo "$forbidden_k"
+            exit 1  # Fail the workflow if a match is found
+          else
+            echo "No hardcoded K numbers found."
+          fi
