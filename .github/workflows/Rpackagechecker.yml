@@ -1,9 +1,6 @@
 name: check for dependencies in R 
 
-on:
-    push:
-         paths:
-            - '**.R'
+on: [push]
 
 jobs:
     check-versions:
