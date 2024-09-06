@@ -4,24 +4,23 @@ on: [push]
 
 jobs:
   check-hardcoded-k:
-    runs-on: windows-latest
+    runs-on: windows-latest  # Use Windows environment
 
     steps:
-      # Step 1: Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Scan files for hardcoded K numbers
       - name: Check for hardcoded K numbers
+        shell: pwsh  # Explicitly use PowerShell
         run: |
           # Scan all Python files for a "K" number (e.g., K1234567)
-          forbidden_k=$(grep -Enr 'K[0-9]{7}' . --include="*.py" || true)
+          $forbidden_k = (Select-String -Path *.py -Pattern "K[0-9]{7}" -AllMatches)
 
           # If a K number is found, print an error and fail the workflow
-          if [-n "${forbidden_k}"]; then
-            echo "The following hardcoded K numbers were found (Failed to commit):"
-            echo "$forbidden_k"
+          if ($forbidden_k) {
+            Write-Host "The following hardcoded K numbers were found:"
+            $forbidden_k | ForEach-Object { Write-Host $_.Line }
             exit 1  # Fail the workflow if a match is found
-          else
-            echo "No hardcoded K numbers found."
-          fi
+          } else {
+            Write-Host "No hardcoded K numbers found."
+          }
