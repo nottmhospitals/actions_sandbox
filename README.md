@@ -59,5 +59,15 @@ The action will still show up here within the image below as being ran:
 ![image](https://hackmd.io/_uploads/ryssKNPhR.png)
 
 
+* If you want actions to run without pushes from certain files. You can use the example provided below to ignore files from triggering actions:
+```
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
+```
+
 **WARNING:**
 Total billable is not equal to run time, it rounds up to the minute so if a build runs for 19 seconds it will end up being 1 minute.
