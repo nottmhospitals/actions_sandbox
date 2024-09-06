@@ -1,0 +1,34 @@
+name: All Python scripts
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Setup Python
+      uses: actions/checkout@v4
+      with:
+        python-version: '3.9'
+    - name: Check and Install Numpy If Not Already Installed
+      run: |
+          # this is checking that if it is not installed, install numpy
+          python -c "import numpy" || pip install numpy
+          python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
+    - name: Check and Install Black(code formatter) If not installed
+      run: |        
+          # this is checking that if it is not installed, install numpy
+          python -c "import black" || pip install black
+          python -c "import black; print(f'black version: {black.__version__}')"    
+    #Check code formatting with black
+    - name: Check code formatting with black
+      run: black .
+    - name: Running Addition Function
+      run: |
+        python AdditionFunction.py
+    - name: Running String Function
+      run: |
+        python stringFunction.py
+
+    
