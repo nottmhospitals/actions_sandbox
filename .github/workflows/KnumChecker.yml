@@ -1,12 +1,6 @@
 name: Check for Hardcoded K Numbers
 
-on:
-  push:
-    paths:
-      - '**.py'  # Trigger only when Python files are pushed
-  pull_request:
-    paths:
-      - '**.py'  # Trigger on pull requests with Python file changes
+on: [push]
 
 jobs:
   check-hardcoded-k:
