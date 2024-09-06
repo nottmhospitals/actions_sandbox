@@ -1,6 +1,11 @@
 name: check for dependencies in R 
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
     check-versions:
