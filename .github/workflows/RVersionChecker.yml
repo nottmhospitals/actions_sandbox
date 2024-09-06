@@ -1,6 +1,11 @@
 name: Check if R is installed
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   build:
