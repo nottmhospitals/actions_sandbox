@@ -1,28 +1,28 @@
-name: Test String Function 
+# name: Test String Function 
 
-on: [push]
+# on: [push]
 
-jobs:
-  build:
-    runs-on: windows-latest
+# jobs:
+#   build:
+#     runs-on: windows-latest
 
-    steps:
-    - name: Setup Python
-      uses: actions/checkout@v4
-      with:
-        python-version: '3.9'
-
-        
-
-
-
-    - name: Check and Install Numpy If Not Already Installed
-      run: |
-        # this is checking that if it is not installed, install numpy
-        python -c "import numpy" || pip install numpy
-        python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"    
+#     steps:
+#     - name: Setup Python
+#       uses: actions/checkout@v4
+#       with:
+#         python-version: '3.9'
 
         
-    - name: Running String Function
-      run: |
-        python StringFunction.py
+
+
+
+#     - name: Check and Install Numpy If Not Already Installed
+#       run: |
+#         # this is checking that if it is not installed, install numpy
+#         python -c "import numpy" || pip install numpy
+#         python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"    
+
+        
+#     - name: Running String Function
+#       run: |
+#         python StringFunction.py

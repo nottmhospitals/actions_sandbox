@@ -1,23 +1,23 @@
-name: Code Formatter 
+# name: Code Formatter 
 
-on: [push]
+# on: [push]
 
-jobs:
-  build:
-    runs-on: windows-latest
+# jobs:
+#   build:
+#     runs-on: windows-latest
 
-    steps:
-    - name: Setup Python
-      uses: actions/checkout@v4
-      with:
-        python-version: '3.9'
+#     steps:
+#     - name: Setup Python
+#       uses: actions/checkout@v4
+#       with:
+#         python-version: '3.9'
 
-    - name: Check and Install Black(code formatter) If not installed
-      run: |        
-          # this is checking that if it is not installed, install numpy
-          python -c "import black" || pip install black
-          python -c "import black; print(f'black version: {black.__version__}')"    
+#     - name: Check and Install Black(code formatter) If not installed
+#       run: |        
+#           # this is checking that if it is not installed, install numpy
+#           python -c "import black" || pip install black
+#           python -c "import black; print(f'black version: {black.__version__}')"    
 
-    #Check code formatting with black
-    - name: Check code formatting with black
-      run: black .
+#     #Check code formatting with black
+#     - name: Check code formatting with black
+#       run: black .
