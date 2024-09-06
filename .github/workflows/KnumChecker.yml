@@ -1,6 +1,9 @@
 name: Check for Hardcoded K Numbers
 
-on: [push, pull_request]
+on:  
+  push:
+    paths:
+      - '**.py'  # Only run the check when Python files are pushed
 
 jobs:
   check-hardcoded-k:
