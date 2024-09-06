@@ -1,23 +1,23 @@
-name: checking for python dependencies
+# name: checking for python dependencies
 
-on: [push]
+# on: [push]
 
-jobs:
-    build:
-          runs-on: windows-latest
+# jobs:
+#     build:
+#           runs-on: windows-latest
 
 
-          steps:
-              - name: Check python is installed  
-                uses: actions/setup-python@v4
-                with:
-                      # checks that the user's version of python is '3.9'
-                      python-version: '3.9'
-                    # prints out the version that the user currently has
-              - name: Display Python Version 
-                run: python -c "import sys; print(sys.version)"
-              - name: Check and Install Numpy If Not Already Installed
-                run: |
-                    # this is checking that if it is not installed, install numpy
-                    python -c "import numpy" || pip install numpy
-                    python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
+#           steps:
+#               - name: Check python is installed  
+#                 uses: actions/setup-python@v4
+#                 with:
+#                       # checks that the user's version of python is '3.9'
+#                       python-version: '3.9'
+#                     # prints out the version that the user currently has
+#               - name: Display Python Version 
+#                 run: python -c "import sys; print(sys.version)"
+#               - name: Check and Install Numpy If Not Already Installed
+#                 run: |
+#                     # this is checking that if it is not installed, install numpy
+#                     python -c "import numpy" || pip install numpy
+#                     python -c "import numpy; print(f'NumPy version: {numpy.__version__}')"
