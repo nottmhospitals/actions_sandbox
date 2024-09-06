@@ -38,7 +38,7 @@ Checks that if the file contains the relavent libaries/packages and if not it wi
 
 * **A log how much data has been consumed per day** 
 * **05/09/2024:** We did 34 commits, 102 workflow runs, consumed 214 minutes, 6 scripts.
-* **06/09/2024:** We did _ commits, _ workflow runs, consumed - minutes, 6 scripts.
+* **06/09/2024:** We did 48 commits, 338 workflow runs, consumed 166 minutes, 7 scripts.
 
 * By commenting an action you avoid running executing it on a commit which will save minutes and storage
 
@@ -69,5 +69,24 @@ on:
       - '**/README.md'
 ```
 
+### How to Enforce Auto-Merge based off Action Passing 
+
+1.  Enable auto-merge for your repository, see the Github documentation here
+
+2. Go to the branch protection rules of your repository. To get there: Go to your repository settings then go to **"branches"** in the section **"Code and automation"**
+
+4. Add or edit the branch protection rules for the branch you want to merge your pull requests into, so e.g. main or master
+
+4. Activate **"Require status checks to pass before merging"**
+
+5. Type each name of your (Github Actions) workflows into the free text field with the description **"Search for status checks in the last week of this repository"**
+
+6. Then auto-merging should be possible.
+
+###### For more information about Merging  follow this link: [Auto Merge](https://stackoverflow.com/questions/71623045/automatic-merge-after-tests-pass-using-actions)
+
+
+
 **WARNING:**
 Total billable is not equal to run time, it rounds up to the minute so if a build runs for 19 seconds it will end up being 1 minute.
+
