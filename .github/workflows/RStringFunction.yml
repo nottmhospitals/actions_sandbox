@@ -1,6 +1,11 @@
 name: Test R String Function 
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   check-os-version:
