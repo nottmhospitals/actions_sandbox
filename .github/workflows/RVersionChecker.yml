@@ -11,7 +11,7 @@ jobs:
         uses: actions/setup-R@v4
       
       - name: Check R Version 
-        uses: r-lib/actions/setup-r@v1
+        uses: r-lib/actions/setup-r test@v2
         with:
           r-version: 4.4.1
       - name: Verify R Version 
