@@ -1,9 +1,6 @@
 name: Check if R is installed
 
-on: 
-  push:
-      paths:
-        - '**.R'
+on: [push]
 
 jobs:
   build:
