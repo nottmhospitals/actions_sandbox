@@ -20,5 +20,5 @@ jobs:
             Rscript -e 'install.packages("ggplot2")'
       - name: Install ggplot2
         run: |
-            Rscript stringFunction()
+            Rscript -e 'stringFunction()'
         
