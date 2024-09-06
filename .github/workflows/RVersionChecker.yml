@@ -13,7 +13,7 @@ jobs:
           r-version: 4.4.1
       - name: Verify R Version 
         run: |
-          Rscript -e 'version_info <- R.version$version.string; print(version_info)
+          Rscript -e 'version_info <- R.version$version.string; print(version_info)'
   
   
     
