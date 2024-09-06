@@ -1,7 +1,11 @@
 name: R Workflow -  Style Check
 
-on: [push]
-  
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
 jobs:
   style-check:
     runs-on: windows-latest
