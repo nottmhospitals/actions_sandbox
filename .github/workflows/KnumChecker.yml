@@ -18,7 +18,7 @@ jobs:
           forbidden_k=$(grep -Enr 'K[0-9]{7}' . --include="*.py" || true)
 
           # If a K number is found, print an error and fail the workflow
-          if ( -n "$forbidden_k" ); then
+          if [ -n ${forbidden_k}]; then
             echo "The following hardcoded K numbers were found (Failed to commit):"
             echo "$forbidden_k"
             exit 1  # Fail the workflow if a match is found
