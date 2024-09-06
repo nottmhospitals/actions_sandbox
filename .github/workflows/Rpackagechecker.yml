@@ -18,7 +18,7 @@ jobs:
           # Install ggplot2
              - name: Install ggplot2
                run: |
-                   Rscript -e if(!require(ggplot2)) install.packages("ggplot2")
+                   Rscript -e 'install.packages("ggplot2")'
 
       # checks the versions of both R and ggplot2
              - name: Check R and ggplot2 versions
