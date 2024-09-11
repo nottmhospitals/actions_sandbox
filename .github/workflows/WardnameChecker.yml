@@ -25,18 +25,17 @@ jobs:
           # Find all scripts except README.md
           $scripts = Get-ChildItem -Recurse -Include *.py, *.r -Exclude README.md, tutorials.md 
 
-              foreach ($script in $scripts) {
-              $scriptContent = Get-Content -Path $script.FullName
-
-              # Loop through each ward name and check if it's hardcoded in the script
+          foreach ($script in $scripts) {
+              # Check each script for each ward name using Select-String
               foreach ($wardName in $wardNames) {
-                  if ($scriptContent -contains $wardName) {
+                  $match = Select-String -Path $script.FullName -Pattern $wardName
+                  if ($match) {
                       Write-Host "Hardcoded ward name found: $wardName in $($script.FullName)"
                       exit 1  # Fail the workflow if a match is found
                   }
               }
           }
-
+ 
           Write-Host "No hardcoded ward names found."
          
         
