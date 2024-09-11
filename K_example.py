@@ -9,6 +9,6 @@ def example_function():
     print(K_variable)  # Hardcoded K number in a print statement
 #call the function to test
 #ABTU
-ward_name = 'ABTU'
+ward_name = 'AMRA'
 print (ward_name)
 example_function()
