@@ -15,7 +15,8 @@ Runs the function **'stringFunction(message)'** to get the output
 * **Checking for python dependencies**:
 Checks that if the file contains the relavent libaries/packages and if not it will install those packages
 * **File checker(Not working at the moment)**:
-Looks for files with certain file extension like '**.csv**' and will forbid it to be applied to the repository until approved by admin. 
+Looks for files with certain file extension like '**.csv**' and will forbid it to be applied to the repository until approved by admin.
+
 
 #### R Actions:
 * **R Installed Check:**
@@ -41,6 +42,8 @@ Checks that if the file contains the relavent libaries/packages and if not it wi
 * **06/09/2024:** We did 48 commits, 338 workflow runs, consumed 166 minutes, 7 scripts.
 
 * By commenting an action you avoid running executing it on a commit which will save minutes and storage
+
+* As of right now **11/09/2024** there is no possible way to hide actions. The methods that can be used but not effective to reduce exposure is to use API keys, rewriting the workflows to allow authorized users to run it manually or using self-hosted runners
 
 
 **Run vs Commit**
