@@ -3,7 +3,7 @@ name: Check if any script contains forbidden contents(ward names) from .txt
 on:
   push:
     branches:
-    - master
+      - master
     paths-ignore:
       - '**/README.md'
       - '**/tutorials.md'
