@@ -20,20 +20,23 @@ jobs:
         shell: pwsh  # Ensure PowerShell is used
         run: |
           # Get the content from the forbidden.txt file
-          $forbiddenContent = Get-Content -Path "wardnames.txt"
+          $wardNames = Get-Content -Path "wardnames.txt"
 
           # Find all scripts except README.md
           $scripts = Get-ChildItem -Recurse -Include *.py, *.r -Exclude README.md, tutorials.md 
 
-          foreach ($script in $scripts) {
-            # Read the content of each script
-            $scriptContent = Get-Content -Path $script.FullName
+              foreach ($script in $scripts) {
+              $scriptContent = Get-Content -Path $script.FullName
 
-            # Check if the script contains any forbidden content
-            if ($scriptContent -contains $forbiddenContent) {
-              Write-Host "Forbidden content found in $($script.FullName)"
-              exit 1  # Fail the workflow if forbidden content is found
-            }
+              # Loop through each ward name and check if it's hardcoded in the script
+              foreach ($wardName in $wardNames) {
+                  if ($scriptContent -contains $wardName) {
+                      Write-Host "Hardcoded ward name found: $wardName in $($script.FullName)"
+                      exit 1  # Fail the workflow if a match is found
+                  }
+              }
           }
 
-          Write-Host "No forbidden content found in any script."
+          Write-Host "No hardcoded ward names found."
+         
+        
