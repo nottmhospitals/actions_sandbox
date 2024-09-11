@@ -2,9 +2,8 @@ name: Check if any script contains forbidden contents(ward names) from .txt
 
 on:
   push:
-    paths:
-      - '**.py'   # Monitor Python scripts
-      - '**.r'   # Monitor shell scripts
+    branches:
+    - master
     paths-ignore:
       - '**/README.md'
       - '**/tutorials.md'
