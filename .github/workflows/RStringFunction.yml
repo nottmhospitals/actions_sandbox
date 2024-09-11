@@ -6,6 +6,8 @@ on:
       - master
     paths-ignore:
       - '**/README.md'
+      - '**/tutorials.md'
+
 
 jobs:
   check-os-version:
