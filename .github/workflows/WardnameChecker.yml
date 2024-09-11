@@ -1,0 +1,42 @@
+name: Check if any script contains forbidden contents(ward names) from .txt
+
+on:
+  push:
+    paths:
+      - '**.py'   # Monitor Python scripts
+      - '**.r'   # Monitor shell scripts
+    paths-ignore:
+      - '**/README.md'
+      - '**/tutorials.md'
+      
+  
+
+jobs:
+  check_forbidden_content:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check if any script contains forbidden content
+        shell: pwsh  # Ensure PowerShell is used
+        run: |
+          # Get the content from the forbidden.txt file
+          $forbiddenContent = Get-Content -Path "wardnames.txt"
+
+          # Find all scripts except README.md
+          $scripts = Get-ChildItem -Recurse -Include *.py, *.r -Exclude README.md, tutorials.md 
+
+          foreach ($script in $scripts) {
+            # Read the content of each script
+            $scriptContent = Get-Content -Path $script.FullName
+
+            # Check if the script contains any forbidden content
+            if ($scriptContent -contains $forbiddenContent) {
+              Write-Host "Forbidden content found in $($script.FullName)"
+              exit 1  # Fail the workflow if forbidden content is found
+            }
+          }
+
+          Write-Host "No forbidden content found in any script."
