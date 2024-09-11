@@ -35,15 +35,20 @@ Checks that if the file contains the relavent libaries/packages and if not it wi
 ---
 
 ## General Information
+#### Log of data consumed per day
 
-
-* **A log how much data has been consumed per day** 
 * **05/09/2024:** We did 34 commits, 102 workflow runs, consumed 214 minutes, 6 scripts.
 * **06/09/2024:** We did 48 commits, 338 workflow runs, consumed 166 minutes, 7 scripts.
 
+*  **11/09/2024:** We did 23 commits, 557 workflow runs, consumed 448 minutes, 8 scripts.
+---
+
+#### Notes
+
 * By commenting an action you avoid running executing it on a commit which will save minutes and storage
 
-* As of right now **11/09/2024** there is no possible way to hide actions. The methods that can be used but not effective to reduce exposure is to use API keys, rewriting the workflows to allow authorized users to run it manually or using self-hosted runners
+* As of right now **11/09/2024** there is no possible way to hide actions. The methods that can be used but not effective to mimic hiding actions: the use of API keys or rewriting the workflows to allow authorized users to run it manually
+
 
 
 **Run vs Commit**
@@ -54,6 +59,8 @@ Checks that if the file contains the relavent libaries/packages and if not it wi
 The main difference is that `run` are usually within a workflow file and it can have multiple `run` commands in there.However a `commit` is when you either add a new file or edit previous files, which are then pushed to the repository
 
 ## Key Advice
+* If you have a **.txt** file and want to read from it, GitHub Actions allows you to do so without needing to place it inside the **actions/workflow** folder. Instead, you can leave it out in the main directory if you wish to do so.
+ 
 * If you have commented out code within an action it will not show the action being ran in the image below but the action will still be ran as a workflow file has been created. To not want a workflow file to be ran. You must **DELETE** the file from under the 'Actions' tab. 
 
 ![image](https://hackmd.io/_uploads/HyBaOEDhR.png)
