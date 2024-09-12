@@ -20,4 +20,4 @@ jobs:
        # In this test case we are testing an addition function that should output '20'
        - name: Run Python assert test
          run: |
-          MathOutputTest.py
+          python MathOutputTest.py
