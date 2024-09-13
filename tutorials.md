@@ -464,4 +464,63 @@ Step 3: Save and Push Your Changes
 **4. Commit Your Changes:**
 After pasting the YAML code into the file, save the file and commit it to your repository. This records your changes.
 
+#  Tutorials and Guides
+
+## How to use `.gitignore`?
+The `.gitignore` file tells Git which files or directories to ignore in a repository. This is useful for excluding files that are sensitive(**API Keys**) and temporary files(**logs**) etc.. you see below some useful information and use cases for`.gitignore`.
+
+### 1. Creating a `.gitignore` file.
+To create a `.gitignore` file, simply create a plain text file named .gitignore at the root of your repository.
+
+### 2. Basic Syntax of `.gitignore` .
+* Each line of `.gitignore` specifies a pattern to match files and directories.
+* Lines starting with `#` are comments.
+* Blank lines are ignored.
+##### **Example**:
+```
+# Ignore node modules directory
+node_modules/
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.o
+```
+
+### 3. Basic Use Cases of `.gitignore` .
+**Ignoring File Extensions:**
+To ignore all files of a certain type (e.g., py files), use the `*` wildcard.
+```
+*.py  # Ignore all .py files
+```
+
+**Ignoring Directories:**
+To ignore a directory and all its contents, append a `/`
+```
+R_files/
+```
+
+**Ignoring Files in Subdirectories:**
+To ignore files in all subdirectories, use the `**` wildcard.
+```
+**/test.R  # Ignore test.R in any directory
+```
+
+### 4. Checking and Updating  `.gitignore` .
+You can see which files are being ignored by running: 
+```
+git status --ignored
+```
+
+To update `.gitignore` files for existing repositories  you have to add files to `.gitignore` after they’ve already been tracked by Git, you need to untrack them.
+Doing this below will remove the file from your repositories but will keep them in your local repository
+```
+git rm --cached <file>
+```
+
+###### For more information about gitignore  follow this link: [Ignoring files](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
 
