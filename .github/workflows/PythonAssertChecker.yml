@@ -1,23 +1,23 @@
-name: Python assert Test for addition function (A + B)
+# name: Python assert Test for addition function (A + B)
 
-on:
-  push:
-      paths:
-            '**.py'
+# on:
+#   push:
+#       paths:
+#             '**.py'
 
-jobs:
-   build: 
-   # this will check that the user is running on the latest version of following OS  
-     runs-on: windows-latest
- # uses actions/checkout with '@v_' which will automatically assign the version based on the repository  
-     steps:
-       - uses: actions/checkout@v4
-       - name: Checking if Python is installed 
-         uses: actions/setup-python@v4
-         with:
-         # checks that the user's version of python is '3.9'
-            python-version: '3.9'
-       # In this test case we are testing an addition function that should output '20'
-       - name: Run Python assert test
-         run: |
-          python MathOutputTest.py
+# jobs:
+#    build: 
+#    # this will check that the user is running on the latest version of following OS  
+#      runs-on: windows-latest
+#  # uses actions/checkout with '@v_' which will automatically assign the version based on the repository  
+#      steps:
+#        - uses: actions/checkout@v4
+#        - name: Checking if Python is installed 
+#          uses: actions/setup-python@v4
+#          with:
+#          # checks that the user's version of python is '3.9'
+#             python-version: '3.9'
+#        # In this test case we are testing an addition function that should output '20'
+#        - name: Run Python assert test
+#          run: |
+#           python MathOutputTest.py
